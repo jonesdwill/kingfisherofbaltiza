@@ -20,5 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# raw source assets (images/videos — served via public/gallery instead)
+/assets/
+
 # jetbrains setting folder
 .idea/

@@ -2,13 +2,16 @@ import sharp from 'sharp';
 import { readdirSync, statSync, writeFileSync } from 'fs';
 import { join, extname } from 'path';
 
-const dir = './public/gallery';
-const files = readdirSync(dir).filter(f => /\.(jpe?g|JPE?G)$/i.test(extname(f)));
+const srcDir = './assets';
+const outDir = './public/gallery';
+const files = readdirSync(srcDir).filter(f => /\.(jpe?g|JPE?G)$/i.test(extname(f)));
 
 for (const file of files) {
-  const p = join(dir, file);
-  const before = statSync(p).size;
-  const buf = await sharp(p)
+  const src = join(srcDir, file);
+  const p = join(outDir, file);
+  const before = statSync(src).size;
+  const buf = await sharp(src)
+    .rotate()                                         // apply EXIF orientation
     .resize({ width: 1600, withoutEnlargement: true })
     .jpeg({ quality: 82, mozjpeg: true })
     .toBuffer();

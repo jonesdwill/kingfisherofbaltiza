@@ -1,0 +1,95 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const images = [
+	'127536250001.jpeg',
+	'127536250003.jpeg',
+	'127536250004.jpeg',
+	'127536250005.jpeg',
+	'127536250006.jpeg',
+	'127536250008.jpeg',
+	'127536250015.jpeg',
+	'127536250017.jpeg',
+	'127536250019.jpeg',
+	'127536250021.jpeg',
+	'127536250022.JPEG',
+	'127536250023.jpeg',
+	'127536250024.jpeg',
+	'127536250028.jpeg',
+	'127536250029.jpeg',
+	'127536250032.JPG',
+	'127536250034.jpeg',
+	'127536260001.jpeg',
+	'127536260004.jpeg',
+	'127536260005.jpeg',
+	'1A99CFF7-B030-4D75-92B3-8358CAF26699.jpg',
+	'Cover.jpeg',
+	'IMG_8098.JPEG',
+	'IMG_8463.JPEG',
+	'IMG_8471.JPEG',
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Gallery — ${SITE_TITLE}`} description="Photo gallery" />
+	</head>
+	<body>
+		<Header />
+		<div class="page-column">
+			<div class="gallery-wrap">
+				<h2 class="section-head">Gallery</h2>
+
+				<div class="photo-grid">
+					{images.map((img) => (
+						<a href={`/gallery/${img}`} target="_blank" class="photo-thumb">
+							<img src={`/gallery/${img}`} alt="" loading="lazy" />
+						</a>
+					))}
+				</div>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.gallery-wrap {
+		padding: 1rem;
+	}
+
+	.photo-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 6px;
+		margin-top: 1rem;
+	}
+
+	.photo-thumb {
+		display: block;
+		overflow: hidden;
+		border: 1px solid var(--border);
+	}
+
+	.photo-thumb img {
+		display: block;
+		width: 100%;
+		height: 160px;
+		object-fit: cover;
+		transition: opacity 0.15s;
+	}
+
+	.photo-thumb:hover img {
+		opacity: 0.85;
+	}
+
+	@media (max-width: 700px) {
+		.photo-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

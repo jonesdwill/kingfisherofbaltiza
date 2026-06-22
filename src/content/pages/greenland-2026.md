@@ -1,10 +1,8 @@
 ---
-title: 'Greenland 2026'
-description: 'Plans and overview for our Greenland 2026 expedition'
-pubDate: 'Jun 20 2026'
+title: Greenland 2026
+description: Plans and overview for our Greenland 2026 expedition
 ---
-
-Three weeks to go! This trip has been a long time in the making, and we are full of nervous anticipation to be on the final stretch to departure. We write this in the midst of a month-long boatyard frenzy at the Johnson and Loftus boatyard — a few members of the crew have recently graduated and now Kingfisher is getting the spotlight treatment, though I think she got that anyway. Most waking moments are consumed by thoughts and discussions of the KF, but we are incredibly excited that everything is coming together. If the following weeks go well we are on track to leave Ullapool for Graah's Havn on the East Coast of Greenland on July 10th. Our goal is to climb new routes when we get there.
+Three weeks to go! This trip has been a long time in the making, and we are full of nervous anticipation to be on the final stretch to departue. We are in the midst of a month-long boatyard frenzy at the Johnson and Loftus boatyard — a few members of the crew have recently graduated and now Kingfisher is getting the full spotlight treatment. Most waking moments are consumed by thoughts and discussions of the KF, but we are incredibly excited that everything is mostly coming together. If the following weeks go well we are on track to leave Ullapool for climbing in Graah's Havn on the East Coast of Greenland on July 10th.
 
 ## Plan Overview
 
@@ -31,7 +29,7 @@ There will be six members onboard Kingfisher:
 - Bella Southall
 - Gabby Krawczyck
 
-Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabby can look after the KF while the rest of us are climbing. We will work on a rolling watch system with 2 on, 3 off, but this is subject to conditions.
+Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabby can look after the KF while the rest of us are climbing. We will work on a rolling watch system with 2 hours on, 3 off, but this is subject to conditions.
 
 ## Climbing in Graah's Havn
 
@@ -39,4 +37,27 @@ Since Kingfisher has no autohelm this gives us plenty of crew to man watches wit
 
 Our notes apps are filled with a constant stream of reminders, tasks and purchases to make. There are quite a few logistical challenges to consider — how to fit six people on a boat with food, water, fuel, climbing gear, first aid and other essentials for nearly two months.
 
-Thanks to the hard work of Lara we have a menu planned and a spreadsheet filled with outrageous quantities of oats and onions.
+We intend on climbing as two parties, Meg & Lara, and Will & Charlie. Both parties are bring two sets of double ropes, a double rack, aid gear (pitons, ladders etc.) 
+
+Lot's of new lashing points have been added for gas, a new liferaft, the dinghy, the outboard and copious amounts of netting has been installed in the cabin to make use of every bit of space. 
+
+## Prepping Kingfisher
+
+## Sponsorship
+
+As you can imagine, this trip is very expensive. As recent graduates we would not be able to set off without the support of the following foundations: 
+
+- Scottish Arctic Club,
+- Royal Geographic Society (via the Gino Watkins fund),
+- Mount Everest Foundation,
+- Andrew Croft Memorial Fund,
+- Austrian Alpine Club,
+- British Mountaineering Council,
+- Royal Cruising Club.
+
+We have also kindly been given lot's of shiny new gear by Mountain Equipment, to keep us nice and warm on the land.
+
+## Trip Updates
+
+If you want to see more we will be posting regular updates to the blog, and you will be able to see those here
+

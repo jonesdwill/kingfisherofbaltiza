@@ -1,0 +1,24 @@
+media: public/gallery
+
+content:
+  - name: blog
+    label: Blog Posts
+    type: collection
+    path: src/content/blog
+    filename: '{fields.title|slug}.md'
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: string
+      - name: pubDate
+        label: Date
+        type: date
+        options:
+          format: 'MMM DD YYYY'
+      - name: body
+        label: Content
+        type: rich-text

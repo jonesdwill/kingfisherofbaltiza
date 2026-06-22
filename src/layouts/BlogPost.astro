@@ -52,6 +52,46 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.subscribe-box {
+				margin: 2rem 0 1rem;
+				padding: 1rem;
+				border: 1px solid var(--border);
+				border-top: 3px solid var(--red);
+				background: var(--off-white);
+			}
+			.subscribe-box form {
+				display: flex;
+				gap: 0.5rem;
+				margin-top: 0.5rem;
+				flex-wrap: wrap;
+			}
+			.subscribe-box input[type="email"] {
+				flex: 1;
+				min-width: 180px;
+				padding: 0.4rem 0.6rem;
+				border: 1px solid var(--border);
+				font-family: Georgia, serif;
+				font-size: 0.85em;
+			}
+			.subscribe-box button {
+				padding: 0.4rem 1rem;
+				background: var(--red);
+				color: #fff;
+				border: none;
+				font-family: Georgia, serif;
+				font-size: 0.85em;
+				cursor: pointer;
+				letter-spacing: 0.05em;
+			}
+			.subscribe-box button:hover { background: var(--red-dark); }
+			.subscribe-box .powered-by {
+				font-size: 0.7em;
+				color: var(--text-dim);
+				margin-top: 0.4rem;
+			}
+			#disqus_thread {
+				margin-top: 2rem;
+			}
 		</style>
 	</head>
 
@@ -78,9 +118,35 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<hr />
 					</div>
 					<slot />
+
+				<div class="subscribe-box">
+					<p class="section-head">Get updates by email</p>
+					<form action="https://api.follow.it/subscription-form/WHNsNmlyMnFjUFFDeGwzUC9YaS9YMFhzeTRhR05Heis4aEV0TlYvWkRiTDlvWHZETzVOUk1OdnVRNnVqbHBSRGN6azI0Q1RzUlpOYkN6WlFENzZ5aEFxVEMxd0tMZTFEak9YRUxPY1QxdEZweHdEd0xnMi8renpkQ1daRnlBK2R8SDVrVVRkRFQ1Ym1xUUhGUG1UcCtuamJ0UTkxQW1Sb0xiL3Qwc1VJVHUyTT0=/8" method="post">
+						<input type="email" name="email" required placeholder="Enter your email" />
+						<button type="submit">Subscribe</button>
+					</form>
+					<p class="powered-by">Email updates via <a href="https://follow.it" target="_blank" rel="noopener">follow.it</a></p>
 				</div>
-			</article>
-		</main>
+
+				<hr />
+
+				<div id="disqus_thread"></div>
+				<script>
+					var disqus_config = function () {
+						this.page.url = window.location.href;
+						this.page.identifier = window.location.pathname;
+					};
+					(function() {
+						var d = document, s = d.createElement('script');
+						s.src = 'https://kingfisherofbaltiza-co-uk.disqus.com/embed.js';
+						s.setAttribute('data-timestamp', +new Date());
+						(d.head || d.body).appendChild(s);
+					})();
+				</script>
+
+			</div>
+		</article>
+	</main>
 		<Footer />
 	</body>
 </html>

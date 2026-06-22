@@ -15,13 +15,14 @@ const recentPosts = (await getCollection('blog'))
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="preload" as="image" href="/cover.jpg" fetchpriority="high" />
 	</head>
 	<body>
 		<Header />
 
 		<div class="page-column">
 			<div class="site-banner-wrap">
-				<img class="site-banner" src="/cover.jpg" alt="Kingfisher of Baltiza" />
+				<img class="site-banner" src="/cover.jpg" alt="Kingfisher of Baltiza" fetchpriority="high" loading="eager" />
 			</div>
 
 			<div class="home-layout">

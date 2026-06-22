@@ -1,6 +1,91 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Blog — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			.blog-layout {
+				display: grid;
+				grid-template-columns: 1fr 210px;
+				gap: 1.5rem;
+				padding: 1rem;
+				align-items: start;
+			}
+			.blog-main { min-width: 0; }
+			.blog-sidebar {
+				border-left: 1px solid var(--border);
+				padding-left: 1rem;
+			}
+			.post-entry {
+				margin-bottom: 1.5rem;
+				padding-bottom: 1.5rem;
+				border-bottom: 1px solid var(--border);
+			}
+			.post-entry:last-of-type { border-bottom: none; }
+			.post-entry h3 { margin: 0 0 0.2rem; font-size: 1em; }
+			.post-entry h3 a { text-decoration: none; color: var(--text); }
+			.post-entry h3 a:hover { color: var(--red); }
+			.post-date { font-size: 0.78em; color: var(--text-dim); margin: 0 0 0.5rem; }
+			.post-excerpt { font-size: 0.9em; margin: 0 0 0.4rem; color: var(--text); }
+			.read-more { font-size: 0.75em; color: var(--red); text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; }
+			.read-more:hover { color: var(--red-light); text-decoration: underline; }
+			.quicklinks { list-style: none; padding: 0; margin: 0 0 1rem; }
+			.quicklinks li { padding: 0.3rem 0; border-bottom: 1px solid var(--border); font-size: 0.82em; }
+			.quicklinks li a { text-decoration: none; color: var(--text); }
+			.quicklinks li a:hover { color: var(--red); }
+			@media (max-width: 700px) {
+				.blog-layout { grid-template-columns: 1fr; }
+				.blog-sidebar { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1rem; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<div class="page-column">
+			<div class="blog-layout">
+				<main class="blog-main">
+					<p class="section-head">Blog</p>
+					{posts.map((post) => (
+						<div class="post-entry">
+							<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+							<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
+							<p class="post-excerpt">{post.data.description}</p>
+							<a class="read-more" href={`/blog/${post.id}/`}>Read more &rarr;</a>
+						</div>
+					))}
+				</main>
+				<aside class="blog-sidebar">
+					<p class="section-head">Posts</p>
+					<ul class="quicklinks">
+						{posts.map((post) => (
+							<li><a href={`/blog/${post.id}/`}>{post.data.title}</a></li>
+						))}
+					</ul>
+					<div class="subscribe-box">
+						<p class="section-head">Get updates by email</p>
+						<form action="https://app.kit.com/forms/9598410/subscriptions" method="post">
+							<input type="email" name="email_address" required placeholder="Enter your email" />
+							<button type="submit">Subscribe</button>
+						</form>
+					</div>
+				</aside>
+			</div>
+		</div><!-- /.page-column -->
+		<Footer />
+	</body>
+</html>
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';

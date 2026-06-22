@@ -15,26 +15,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
 			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+				max-width: 720px;
+				margin: 0 auto;
+				padding: 1.5rem 1rem;
 			}
 			.title {
 				margin-bottom: 1em;
@@ -47,7 +31,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+				color: var(--text-dim);
+				font-size: 0.85em;
 			}
 			.last-updated-on {
 				font-style: italic;
@@ -84,12 +69,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				letter-spacing: 0.05em;
 			}
 			.subscribe-box button:hover { background: var(--red-dark); }
-			.subscribe-box .powered-by {
-				font-size: 0.7em;
-				color: var(--text-dim);
-				margin-top: 0.4rem;
-			}
-			#disqus_thread {
+			#cusdis_thread {
 				margin-top: 2rem;
 			}
 		</style>
@@ -97,11 +77,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body>
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
+		<div class="page-column">
+		<article>
 				<div class="prose">
 					<div class="title">
 						<div class="date">
@@ -121,32 +98,27 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 				<div class="subscribe-box">
 					<p class="section-head">Get updates by email</p>
-					<form action="https://api.follow.it/subscription-form/WHNsNmlyMnFjUFFDeGwzUC9YaS9YMFhzeTRhR05Heis4aEV0TlYvWkRiTDlvWHZETzVOUk1OdnVRNnVqbHBSRGN6azI0Q1RzUlpOYkN6WlFENzZ5aEFxVEMxd0tMZTFEak9YRUxPY1QxdEZweHdEd0xnMi8renpkQ1daRnlBK2R8SDVrVVRkRFQ1Ym1xUUhGUG1UcCtuamJ0UTkxQW1Sb0xiL3Qwc1VJVHUyTT0=/8" method="post">
-						<input type="email" name="email" required placeholder="Enter your email" />
+					<form action="https://app.kit.com/forms/9598410/subscriptions" method="post">
+						<input type="email" name="email_address" required placeholder="Enter your email" />
 						<button type="submit">Subscribe</button>
 					</form>
-					<p class="powered-by">Email updates via <a href="https://follow.it" target="_blank" rel="noopener">follow.it</a></p>
 				</div>
 
 				<hr />
 
-				<div id="disqus_thread"></div>
-				<script>
-					var disqus_config = function () {
-						this.page.url = window.location.href;
-						this.page.identifier = window.location.pathname;
-					};
-					(function() {
-						var d = document, s = d.createElement('script');
-						s.src = 'https://kingfisherofbaltiza-co-uk.disqus.com/embed.js';
-						s.setAttribute('data-timestamp', +new Date());
-						(d.head || d.body).appendChild(s);
-					})();
-				</script>
+				<p class="section-head">Comments</p>
+				<div id="cusdis_thread"
+					data-host="https://cusdis.com"
+					data-app-id="3b82d991-2b67-4524-8cab-a961c6896d7c"
+					data-page-id={Astro.url.pathname}
+					data-page-url={Astro.url.href}
+					data-page-title={title}
+				></div>
+				<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
 			</div>
 		</article>
-	</main>
+		</div><!-- /.page-column -->
 		<Footer />
 	</body>
 </html>

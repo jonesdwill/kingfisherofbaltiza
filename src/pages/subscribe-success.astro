@@ -13,9 +13,8 @@ import { SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<div class="page-column">
-			<div class="message-box">
-				<p class="section-head">Almost there</p>
-				<h2>Success!</h2>
+			<div class="confirm-content">
+				<h1>Almost there</h1>
 				<p>Now check your email to confirm your subscription. Once confirmed you'll receive updates whenever there's news from Kingfisher.</p>
 				<a class="more-link" href="/">Back to home &rarr;</a>
 			</div>
@@ -25,18 +24,17 @@ import { SITE_TITLE } from '../consts';
 </html>
 
 <style>
-	.message-box {
+	.confirm-content {
 		max-width: 560px;
-		margin: 2rem auto;
-		padding: 2rem;
-		background: var(--off-white);
-		border-top: 3px solid var(--red);
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
 	}
-	.message-box h2 {
-		margin: 0.25rem 0 0.75rem;
-		font-size: 1.5em;
+	.confirm-content h1 {
+		color: var(--red);
+		font-size: 2rem;
+		margin: 0 0 0.75rem;
 	}
-	.message-box p {
+	.confirm-content p {
 		line-height: 1.6;
 		margin: 0 0 1rem;
 		color: var(--text);

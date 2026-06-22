@@ -22,3 +22,18 @@ content:
       - name: body
         label: Content
         type: rich-text
+
+  - name: greenland-2026
+    label: Greenland 2026 Page
+    type: file
+    path: src/content/pages/greenland-2026.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: string
+      - name: body
+        label: Content
+        type: rich-text

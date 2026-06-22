@@ -18,7 +18,7 @@ content:
         label: Date
         type: date
         options:
-          format: 'MMM DD YYYY'
+          format: 'dd mm yyyy'
       - name: body
         label: Content
         type: rich-text

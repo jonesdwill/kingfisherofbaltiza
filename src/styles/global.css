@@ -236,6 +236,8 @@ letter-spacing: 0.05em;
 }
 .subscribe-box button:hover { background: var(--red-dark); }
 
+.is-subscribed .subscribe-box { display: none; }
+
 /* --- Accessibility --- */
 .sr-only {
 border: 0;

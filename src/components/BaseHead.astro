@@ -22,6 +22,11 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" href="data:," />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<script is:inline>
+	if (localStorage.getItem('kf_subscribed')) {
+		document.documentElement.classList.add('is-subscribed');
+	}
+</script>
 <link
 	rel="alternate"
 	type="application/rss+xml"

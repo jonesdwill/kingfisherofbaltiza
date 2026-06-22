@@ -11,6 +11,7 @@ import { SITE_TITLE } from '../consts';
 		<BaseHead title={`Subscribed — ${SITE_TITLE}`} description="Thanks for subscribing" />
 	</head>
 	<body>
+		<script>localStorage.setItem('kf_subscribed', '1');</script>
 		<Header />
 		<div class="page-column">
 			<div class="confirm-content">

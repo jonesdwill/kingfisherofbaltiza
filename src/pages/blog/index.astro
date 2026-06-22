@@ -7,200 +7,123 @@ import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+function getExcerpt(body: string, length = 400): string {
+const text = body
+.replace(/^#{1,6}\s+/gm, '')
+.replace(/\*\*(.+?)\*\*/g, '$1')
+.replace(/\*(.+?)\*/g, '$1')
+.replace(/\[(.+?)\]\(.+?\)/g, '$1')
+.replace(/`(.+?)`/g, '$1')
+.replace(/!\[.*?\]\(.*?\)/g, '')
+.replace(/\n+/g, ' ')
+.trim();
+return text.length > length ? text.slice(0, length).trimEnd() + '...' : text;
+}
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={`Blog â€” ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-		<style>
-			.blog-layout {
-				display: grid;
-				grid-template-columns: 1fr 210px;
-				gap: 1.5rem;
-				padding: 1rem;
-				align-items: start;
-			}
-			.blog-main { min-width: 0; }
-			.blog-sidebar {
-				border-left: 1px solid var(--border);
-				padding-left: 1rem;
-			}
-			.post-entry {
-				margin-bottom: 1.5rem;
-				padding-bottom: 1.5rem;
-				border-bottom: 1px solid var(--border);
-			}
-			.post-entry:last-of-type { border-bottom: none; }
-			.post-entry h3 { margin: 0 0 0.2rem; font-size: 1em; }
-			.post-entry h3 a { text-decoration: none; color: var(--text); }
-			.post-entry h3 a:hover { color: var(--red); }
-			.post-date { font-size: 0.78em; color: var(--text-dim); margin: 0 0 0.5rem; }
-			.post-excerpt { font-size: 0.9em; margin: 0 0 0.4rem; color: var(--text); }
-			.read-more { font-size: 0.75em; color: var(--red); text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; }
-			.read-more:hover { color: var(--red-light); text-decoration: underline; }
-			.quicklinks { list-style: none; padding: 0; margin: 0 0 1rem; }
-			.quicklinks li { padding: 0.3rem 0; border-bottom: 1px solid var(--border); font-size: 0.82em; }
-			.quicklinks li a { text-decoration: none; color: var(--text); }
-			.quicklinks li a:hover { color: var(--red); }
-			@media (max-width: 700px) {
-				.blog-layout { grid-template-columns: 1fr; }
-				.blog-sidebar { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1rem; }
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<div class="page-column">
-			<div class="blog-layout">
-				<main class="blog-main">
-					<p class="section-head">Blog</p>
-					{posts.map((post) => (
-						<div class="post-entry">
-							<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
-							<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
-							<p class="post-excerpt">{post.data.description}</p>
-							<a class="read-more" href={`/blog/${post.id}/`}>Read more &rarr;</a>
-						</div>
-					))}
-				</main>
-				<aside class="blog-sidebar">
-					<p class="section-head">Posts</p>
-					<ul class="quicklinks">
-						{posts.map((post) => (
-							<li><a href={`/blog/${post.id}/`}>{post.data.title}</a></li>
-						))}
-					</ul>
-					<div class="subscribe-box">
-						<p class="section-head">Get updates by email</p>
-						<form action="https://app.kit.com/forms/9598410/subscriptions" method="post">
-							<input type="email" name="email_address" required placeholder="Enter your email" />
-							<button type="submit">Subscribe</button>
-						</form>
-					</div>
-				</aside>
-			</div>
-		</div><!-- /.page-column -->
-		<Footer />
-	</body>
-</html>
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+<head>
+<BaseHead title={`Blog — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+</head>
+<body>
+<Header />
+<div class="page-column">
+<div class="blog-layout">
+<main class="blog-main">
+<p class="section-head">Blog</p>
+{posts.map((post) => (
+<div class="post-entry">
+<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+<p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
+<p class="post-excerpt">{getExcerpt(post.body ?? '')}</p>
+<a class="read-more" href={`/blog/${post.id}/`}>Read more &rarr;</a>
+</div>
+))}
+</main>
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
----
+<aside class="blog-sidebar">
+<p class="section-head">Posts</p>
+{posts.map((post) => (
+<div class="recent-post">
+<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+<span class="recent-date"><FormattedDate date={post.data.pubDate} /></span>
+</div>
+))}
+</aside>
+</div>
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<div class="page-column" style="padding: 1rem;">
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-			<div class="subscribe-box" style="max-width:460px; margin-top:2rem;">
-				<p class="section-head">Get updates by email</p>
-				<form action="https://app.kit.com/forms/9598410/subscriptions" method="post" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;">
-					<input type="email" name="email_address" required placeholder="Enter your email" style="flex:1; min-width:160px; padding:0.4rem 0.6rem; border:1px solid var(--border); font-family:Georgia,serif; font-size:0.85em;" />
-					<button type="submit" style="padding:0.4rem 1rem; background:var(--red); color:#fff; border:none; font-family:Georgia,serif; font-size:0.85em; cursor:pointer;">Subscribe</button>
-				</form>
-			</div>
-		</div><!-- /.page-column -->
-		<Footer />
-	</body>
+<div class="subscribe-box" style="margin: 0 1rem 1rem;">
+<p class="section-head">Get updates by email</p>
+<form action="https://app.kit.com/forms/9598410/subscriptions" method="post">
+<input type="email" name="email_address" required placeholder="Enter your email" />
+<button type="submit">Subscribe</button>
+</form>
+</div>
+</div><!-- /.page-column -->
+<Footer />
+</body>
 </html>
+
+<style>
+.blog-layout {
+display: grid;
+grid-template-columns: 1fr 220px;
+gap: 1.5rem;
+padding: 1rem 1rem 0;
+align-items: start;
+}
+.blog-main { min-width: 0; }
+.blog-sidebar {
+border-left: 1px solid var(--border);
+padding-left: 1rem;
+}
+.post-entry {
+padding: 0.75rem 0 1rem;
+border-bottom: 1px solid var(--border);
+}
+.post-entry:first-of-type { padding-top: 0; }
+.post-entry h3 { margin: 0 0 0.2rem; font-size: 1.05em; }
+.post-entry h3 a { text-decoration: none; color: var(--text); }
+.post-entry h3 a:hover { color: var(--red); }
+.post-date { font-size: 0.78em; color: var(--text-dim); margin: 0 0 0.5rem; }
+.post-excerpt { font-size: 0.9em; margin: 0 0 0.5rem; color: var(--text); line-height: 1.6; }
+.read-more {
+font-size: 0.75em;
+color: var(--red);
+text-decoration: none;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+.read-more:hover { color: var(--red-light); text-decoration: underline; }
+.recent-post {
+padding: 0.5rem 0;
+border-bottom: 1px solid var(--border);
+}
+.recent-post a {
+display: block;
+font-weight: bold;
+font-size: 0.85em;
+text-decoration: none;
+color: var(--link);
+}
+.recent-post a:hover { text-decoration: underline; }
+.recent-date {
+display: block;
+font-size: 0.75em;
+color: var(--text-dim);
+margin-top: 0.1rem;
+}
+@media (max-width: 700px) {
+.blog-layout { grid-template-columns: 1fr; }
+.blog-sidebar {
+border-left: none;
+border-top: 1px solid var(--border);
+padding-left: 0;
+padding-top: 1rem;
+}
+}
+</style>

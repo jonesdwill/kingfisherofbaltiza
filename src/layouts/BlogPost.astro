@@ -69,8 +69,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				letter-spacing: 0.05em;
 			}
 			.subscribe-box button:hover { background: var(--red-dark); }
+			.comments-box {
+				margin: 1rem 0;
+				padding: 1rem;
+				border: 1px solid var(--border);
+				border-top: 3px solid var(--red);
+				background: var(--off-white);
+			}
 			#cusdis_thread {
-				margin-top: 2rem;
+				margin-top: 0.5rem;
 			}
 		</style>
 	</head>
@@ -106,15 +113,28 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 				<hr />
 
-				<p class="section-head">Comments</p>
-				<div id="cusdis_thread"
-					data-host="https://cusdis.com"
-					data-app-id="3b82d991-2b67-4524-8cab-a961c6896d7c"
-					data-page-id={Astro.url.pathname}
-					data-page-url={Astro.url.href}
-					data-page-title={title}
-				></div>
+				<div class="comments-box">
+					<p class="section-head">Comments</p>
+					<div id="cusdis_thread"
+						data-host="https://cusdis.com"
+						data-app-id="3b82d991-2b67-4524-8cab-a961c6896d7c"
+						data-page-id={Astro.url.pathname}
+						data-page-url={Astro.url.href}
+						data-page-title={title}
+					></div>
+				</div>
 				<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+				<script>
+					const observer = new MutationObserver(() => {
+						document.querySelectorAll('#cusdis_thread label').forEach(el => {
+							if (el.textContent.trim() === 'Nickname') el.textContent = 'Name';
+						});
+						document.querySelectorAll('#cusdis_thread input[placeholder="Nickname"]').forEach(el => {
+							el.placeholder = 'Name';
+						});
+					});
+					observer.observe(document.getElementById('cusdis_thread') ?? document.body, { childList: true, subtree: true });
+				</script>
 
 			</div>
 		</article>

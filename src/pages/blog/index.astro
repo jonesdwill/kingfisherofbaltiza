@@ -88,7 +88,7 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
-		<main>
+		<div class="page-column" style="padding: 1rem;">
 			<section>
 				<ul>
 					{
@@ -108,7 +108,14 @@ const posts = (await getCollection('blog')).sort(
 					}
 				</ul>
 			</section>
-		</main>
+			<div class="subscribe-box" style="max-width:460px; margin-top:2rem;">
+				<p class="section-head">Get updates by email</p>
+				<form action="https://app.kit.com/forms/9598410/subscriptions" method="post" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;">
+					<input type="email" name="email_address" required placeholder="Enter your email" style="flex:1; min-width:160px; padding:0.4rem 0.6rem; border:1px solid var(--border); font-family:Georgia,serif; font-size:0.85em;" />
+					<button type="submit" style="padding:0.4rem 1rem; background:var(--red); color:#fff; border:none; font-family:Georgia,serif; font-size:0.85em; cursor:pointer;">Subscribe</button>
+				</form>
+			</div>
+		</div><!-- /.page-column -->
 		<Footer />
 	</body>
 </html>

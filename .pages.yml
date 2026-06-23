@@ -1,4 +1,6 @@
-media: public/gallery
+media:
+  input: public/gallery
+  output: /gallery
 
 content:
   - name: blog
@@ -18,13 +20,15 @@ content:
         label: Date
         type: date
         options:
-          format: 'dd mm yyyy'
+          format: 'MMM DD YYYY'
       - name: heroImage
         label: Cover Photo
         type: image
       - name: body
         label: Content
         type: rich-text
+
+  - name: greenland-2026
     label: Greenland 2026 Page
     type: file
     path: src/content/pages/greenland-2026.md

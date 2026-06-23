@@ -1,7 +1,7 @@
 ---
-title: "Introducing KF's Greenland 2026 Expedition"
-description: "We are three weeks from departure to Graah's Havn, East Greenland."
-pubDate: 'Jun 22 2026'
+title: Introducing KF's Greenland 2026 Expedition
+description: We are three weeks from departure to Graah's Havn, East Greenland.
+pubDate: 23 00 2026
 ---
 Three weeks to go! This trip has been a long time in the making, and we are full of nervous anticipation to be on the final stretch to departure. 
 
@@ -10,3 +10,8 @@ We are in the midst of a month-long boatyard frenzy at the Johnson and Loftus bo
 Read the full expedition overview — route, crew, climbing plans, and logistics — on the **[Greenland 2026 page](/greenland-2026)**.
 
 We will be posting regular updates here as the trip progresses.
+
+
+
+![](/public/gallery/127536260001.jpeg)
+

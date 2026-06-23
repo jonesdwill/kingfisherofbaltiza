@@ -38,7 +38,7 @@ return text.length > length ? text.slice(0, length).trimEnd() + '...' : text;
 {posts.map((post) => (
 <div class="post-entry">
 {post.data.heroImage && (
-<a href={`/blog/${post.id}/`}><img class="post-thumb" src={post.data.heroImage} alt={post.data.title} /></a>
+<a href={`/blog/${post.id}/`}><img class="post-thumb" src={encodeURI(post.data.heroImage)} alt={post.data.title} /></a>
 )}
 <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
 <p class="post-date"><FormattedDate date={post.data.pubDate} /></p>

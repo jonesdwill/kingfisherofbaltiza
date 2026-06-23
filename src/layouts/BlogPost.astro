@@ -114,7 +114,7 @@ margin: 0 auto;
 <div class="page-column">
 <div class={prevPost !== undefined ? "post-layout" : "post-single"}>
 <article class="post-main">
-{heroImage && <img class="hero-image" src={heroImage} alt={title} />}
+{heroImage && <img class="hero-image" src={encodeURI(heroImage)} alt={title} />}
 <div class="prose">
 <div class="title">
 <div class="date">

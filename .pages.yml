@@ -20,7 +20,7 @@ content:
         label: Date
         type: date
         options:
-          format: 'DD MM YYYY'
+          format: 'dd mm yyyy'
       - name: heroImage
         label: Cover Photo
         type: image

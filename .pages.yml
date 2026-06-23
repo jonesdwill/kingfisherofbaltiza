@@ -19,11 +19,12 @@ content:
         type: date
         options:
           format: 'dd mm yyyy'
+      - name: heroImage
+        label: Cover Photo
+        type: image
       - name: body
         label: Content
         type: rich-text
-
-  - name: greenland-2026
     label: Greenland 2026 Page
     type: file
     path: src/content/pages/greenland-2026.md

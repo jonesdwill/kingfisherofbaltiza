@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -7,136 +7,156 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & {
-	prevPost?: { id: string; title: string } | null;
-	nextPost?: { id: string; title: string } | null;
+prevPost?: { id: string; title: string } | null;
+nextPost?: { id: string; title: string } | null;
 };
 
 const { title, description, pubDate, updatedDate, heroImage, prevPost, nextPost } = Astro.props;
+
+const allPosts = (await getCollection('blog')).sort(
+(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.prose {
-				max-width: 720px;
-				margin: 0 auto;
-				padding: 1.5rem 1rem;
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: var(--text-dim);
-				font-size: 0.85em;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-			.comments-box {
-				margin: 1rem 0;
-				padding-top: 0.5rem;
-				border-top: 1px solid var(--border);
-				font-family: Georgia, serif;
-			}
-			#cusdis_thread {
-				margin-top: 0.5rem;
-				font-family: Georgia, serif;
-			}
-			.post-nav {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				gap: 0.5rem;
-				margin: 1.5rem 0 0.5rem;
-				padding: 0.75rem 0;
-				border-top: 1px solid var(--border);
-				border-bottom: 1px solid var(--border);
-				font-size: 0.82em;
-			}
-			.post-nav a {
-				color: var(--link);
-				text-decoration: none;
-			}
-			.post-nav a:hover { text-decoration: underline; }
-			.post-nav-prev { text-align: left; max-width: 38%; }
-			.post-nav-index {
-				text-transform: uppercase;
-				letter-spacing: 0.06em;
-				white-space: nowrap;
-				color: var(--text-dim);
-				font-size: 0.9em;
-			}
-			.post-nav-next { text-align: right; max-width: 38%; }
-		</style>
-	</head>
+<head>
+<BaseHead title={title} description={description} />
+<style>
+.post-layout {
+display: grid;
+grid-template-columns: 1fr 210px;
+gap: 1.5rem;
+padding: 1rem;
+align-items: start;
+}
+.post-main { min-width: 0; }
+.hero-image {
+width: 100%;
+height: auto;
+display: block;
+}
+.prose { padding-top: 0.5rem; }
+.title {
+margin-bottom: 1em;
+padding: 1em 0;
+text-align: center;
+line-height: 1;
+}
+.title h1 { margin: 0 0 0.5em 0; }
+.date {
+margin-bottom: 0.5em;
+color: var(--text-dim);
+font-size: 0.85em;
+}
+.last-updated-on { font-style: italic; }
+.post-nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 0.5rem;
+margin: 1.5rem 0 0.5rem;
+padding: 0.75rem 0;
+border-top: 1px solid var(--border);
+border-bottom: 1px solid var(--border);
+font-size: 0.82em;
+}
+.post-nav a { color: var(--link); text-decoration: none; }
+.post-nav a:hover { text-decoration: underline; }
+.post-nav-prev { text-align: left; max-width: 38%; }
+.post-nav-index {
+text-transform: uppercase;
+letter-spacing: 0.06em;
+white-space: nowrap;
+color: var(--text-dim);
+font-size: 0.9em;
+}
+.post-nav-next { text-align: right; max-width: 38%; }
+.post-sidebar {
+border-left: 1px solid var(--border);
+padding-left: 1rem;
+}
+.recent-post {
+padding: 0.5rem 0;
+border-bottom: 1px solid var(--border);
+}
+.recent-post a {
+display: block;
+font-weight: bold;
+font-size: 0.85em;
+text-decoration: none;
+color: var(--link);
+}
+.recent-post a:hover { text-decoration: underline; }
+.recent-date {
+display: block;
+font-size: 0.75em;
+color: var(--text-dim);
+margin-top: 0.1rem;
+}
+@media (max-width: 700px) {
+.post-layout { grid-template-columns: 1fr; }
+.post-sidebar {
+border-left: none;
+border-top: 1px solid var(--border);
+padding-left: 0;
+padding-top: 1rem;
+}
+}
+</style>
+</head>
 
-	<body>
-		<Header />
-		<div class="page-column">
-		<article>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
+<body>
+<Header />
+<div class="page-column">
+<div class="post-layout">
+<article class="post-main">
+{heroImage && <img class="hero-image" src={heroImage} alt={title} />}
+<div class="prose">
+<div class="title">
+<div class="date">
+<FormattedDate date={pubDate} />
+{updatedDate && (
+<div class="last-updated-on">
+Last updated on <FormattedDate date={updatedDate} />
+</div>
+)}
+</div>
+<h1>{title}</h1>
+<hr />
+</div>
+<slot />
 
-				<nav class="post-nav">
-					{prevPost
-						? <a class="post-nav-prev" href={`/blog/${prevPost.id}/`}>← {prevPost.title}</a>
-						: <span class="post-nav-prev" />}
-					<a class="post-nav-index" href="/blog">All Posts</a>
-					{nextPost
-						? <a class="post-nav-next" href={`/blog/${nextPost.id}/`}>{nextPost.title} →</a>
-						: <span class="post-nav-next" />}
-				</nav>
+<nav class="post-nav">
+{prevPost
+? <a class="post-nav-prev" href={`/blog/${prevPost.id}/`}>? {prevPost.title}</a>
+: <span class="post-nav-prev" />}
+<a class="post-nav-index" href="/blog">All Posts</a>
+{nextPost
+? <a class="post-nav-next" href={`/blog/${nextPost.id}/`}>{nextPost.title} ?</a>
+: <span class="post-nav-next" />}
+</nav>
 
-				<div class="subscribe-box">
-					<p class="section-head">Get updates by email</p>
-					<form action="https://app.kit.com/forms/9598410/subscriptions?success_url=https://www.kingfisherofbaltiza.co.uk/subscribe-success" method="post">
-						<input type="email" name="email_address" required placeholder="Enter your email" />
-						<button type="submit">Subscribe</button>
-					</form>
-				</div>
+<div class="subscribe-box">
+<p class="section-head">Get updates by email</p>
+<form action="https://app.kit.com/forms/9598410/subscriptions?success_url=https://www.kingfisherofbaltiza.co.uk/subscribe-success" method="post">
+<input type="email" name="email_address" required placeholder="Enter your email" />
+<button type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+</article>
 
-				<hr />
-
-				<div class="comments-box">
-					<p class="section-head">Comments</p>
-					<div id="cusdis_thread"
-						data-host="https://cusdis.com"
-						data-app-id="3b82d991-2b67-4524-8cab-a961c6896d7c"
-						data-page-id={Astro.url.pathname}
-						data-page-url={Astro.url.href}
-						data-page-title={title}
-					></div>
-				</div>
-				<script>
-					window.CUSDIS_LOCALE = { nickname: 'Name', fontFamily: 'Georgia, serif' };
-				</script>
-				<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-
-			</div>
-		</article>
-		</div><!-- /.page-column -->
-		<Footer />
-	</body>
+<aside class="post-sidebar">
+<p class="section-head">Posts</p>
+{allPosts.map((post) => (
+<div class="recent-post">
+<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+<span class="recent-date"><FormattedDate date={post.data.pubDate} /></span>
+</div>
+))}
+</aside>
+</div>
+</div><!-- /.page-column -->
+<Footer />
+</body>
 </html>

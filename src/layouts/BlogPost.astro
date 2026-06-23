@@ -102,13 +102,17 @@ padding-left: 0;
 padding-top: 1rem;
 }
 }
+.post-single .post-main {
+max-width: 720px;
+margin: 0 auto;
+}
 </style>
 </head>
 
 <body>
 <Header />
 <div class="page-column">
-<div class="post-layout">
+<div class={prevPost !== undefined ? "post-layout" : "post-single"}>
 <article class="post-main">
 {heroImage && <img class="hero-image" src={heroImage} alt={title} />}
 <div class="prose">
@@ -126,15 +130,17 @@ Last updated on <FormattedDate date={updatedDate} />
 </div>
 <slot />
 
+{prevPost !== undefined && (
 <nav class="post-nav">
 {prevPost
-? <a class="post-nav-prev" href={`/blog/${prevPost.id}/`}>? {prevPost.title}</a>
+? <a class="post-nav-prev" href={`/blog/${prevPost.id}/`}>&larr; {prevPost.title}</a>
 : <span class="post-nav-prev" />}
 <a class="post-nav-index" href="/blog">All Posts</a>
 {nextPost
-? <a class="post-nav-next" href={`/blog/${nextPost.id}/`}>{nextPost.title} ?</a>
+? <a class="post-nav-next" href={`/blog/${nextPost.id}/`}>{nextPost.title} &rarr;</a>
 : <span class="post-nav-next" />}
 </nav>
+)}
 
 <div class="subscribe-box">
 <p class="section-head">Get updates by email</p>
@@ -146,6 +152,7 @@ Last updated on <FormattedDate date={updatedDate} />
 </div>
 </article>
 
+{prevPost !== undefined && (
 <aside class="post-sidebar">
 <p class="section-head">Posts</p>
 {allPosts.map((post) => (
@@ -155,6 +162,7 @@ Last updated on <FormattedDate date={updatedDate} />
 </div>
 ))}
 </aside>
+)}
 </div>
 </div><!-- /.page-column -->
 <Footer />

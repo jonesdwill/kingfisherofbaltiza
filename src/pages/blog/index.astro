@@ -37,6 +37,9 @@ return text.length > length ? text.slice(0, length).trimEnd() + '...' : text;
 <p class="section-head">Blog</p>
 {posts.map((post) => (
 <div class="post-entry">
+{post.data.heroImage && (
+<a href={`/blog/${post.id}/`}><img class="post-thumb" src={post.data.heroImage} alt={post.data.title} /></a>
+)}
 <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
 <p class="post-date"><FormattedDate date={post.data.pubDate} /></p>
 <p class="post-excerpt">{getExcerpt(post.body ?? '')}</p>
@@ -86,6 +89,13 @@ padding: 0.75rem 0 1rem;
 border-bottom: 1px solid var(--border);
 }
 .post-entry:first-of-type { padding-top: 0; }
+.post-thumb {
+width: 100%;
+height: 200px;
+object-fit: cover;
+display: block;
+margin-bottom: 0.6rem;
+}
 .post-entry h3 { margin: 0 0 0.2rem; font-size: 1.05em; }
 .post-entry h3 a { text-decoration: none; color: var(--text); }
 .post-entry h3 a:hover { color: var(--red); }

@@ -24,20 +24,28 @@ There will be six members onboard Kingfisher:
 
 - Meg Loftus (Skipper)
 - Lara Novak
-- Will Jones
 - Charlie Banford
+- Will Jones
 - Bella Southall
 - Gabby Krawczyck
 
 Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabby can look after the KF while the rest of us are climbing. We will work on a rolling watch system with 2 hours on, 3 off, but this is subject to conditions.
 
-## Climbing in Graah's Havn
+## Climbing in Graah's Fjiord
+
+Graah's Fjiord was chosen largley due to a tempting line in Andrew Wilkes' excellent pilot guide, "spectacular anchorage...with climbing potential" obviously this was the place to visit. Featuring two significant peaks with no recorded ascents there is even a chance of new summits for the team.
+
+Graah's Fjiord had no reported visits by climbing teams when we first started planning this expedition, however a team from the  swiss alpine club visited last summer climbing a number of routes in the fijord. Fortunately their efforts were largely focused in the skjoldungen fjords and they do not appear to have climbed the summits we have been investigating.
+
+It is of course difficult to know what the climbing will be like but the few photos provided from this previous expedition looked promising and constant scouring of google earth has allowed for the location of potential lines. Hopefully its not all choss!
+
+
 
 ## Logistical Challenges
 
 Our notes apps are filled with a constant stream of reminders, tasks and purchases to make. There are quite a few logistical challenges to consider — how to fit six people on a boat with food, water, fuel, climbing gear, first aid and other essentials for nearly two months.
 
-We intend on climbing as two parties, Meg & Lara, and Will & Charlie. Both parties are bring two sets of double ropes, a double rack, aid gear (pitons, ladders etc.) 
+We intend on climbing as two parties, Meg & Lara, and Will & Charlie. Both parties will bring two sets of double ropes, a double rack, aid gear (pitons, ladders etc.) 
 
 Lot's of new lashing points have been added for gas, a new liferaft, the dinghy, the outboard and copious amounts of netting has been installed in the cabin to make use of every bit of space. 
 
@@ -47,13 +55,13 @@ Lot's of new lashing points have been added for gas, a new liferaft, the dinghy,
 
 As you can imagine, this trip is very expensive. As recent graduates we would not be able to set off without the support of the following foundations: 
 
-- Scottish Arctic Club,
-- Royal Geographic Society (via the Gino Watkins fund),
-- Mount Everest Foundation,
-- Andrew Croft Memorial Fund,
-- Austrian Alpine Club,
-- British Mountaineering Council,
-- Royal Cruising Club.
+- The Scottish Arctic Club,
+- The Royal Geographic Society (via the Gino Watkins fund),
+- The Mount Everest Foundation,
+- The Andrew Croft Memorial Fund,
+- The Austrian Alpine Club,
+- The British Mountaineering Council,
+- The Royal Cruising Club.
 
 We have also kindly been given lot's of shiny new gear by Mountain Equipment, to keep us nice and warm on the land.
 

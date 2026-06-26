@@ -42,20 +42,31 @@ jobs:
             | sed "s/^title: *//;s/^['\"]//;s/['\"]$//")
           DESC=$(awk '/^---/{if(f)exit;f=1;next} f && /^description:/{print;exit}' "$POST_FILE" \
             | sed "s/^description: *//;s/^['\"]//;s/['\"]$//")
+          HERO=$(awk '/^---/{if(f)exit;f=1;next} f && /^heroImage:/{print;exit}' "$POST_FILE" \
+            | sed "s/^heroImage: *//;s/^['\"]//;s/['\"]$//")
           SLUG=$(basename "$POST_FILE" .md)
           URL="https://www.kingfisherofbaltiza.co.uk/blog/${SLUG}/"
 
           echo "=== New post detected ==="
           echo "Title:       $TITLE"
           echo "Description: $DESC"
+          echo "Hero image:  $HERO"
           echo "URL:         $URL"
           echo "========================="
+
+          # Build hero image tag (convert local path to absolute URL)
+          if [ -n "$HERO" ]; then
+            HERO_ABS="https://www.kingfisherofbaltiza.co.uk${HERO}"
+            HERO_HTML="<img src=\"${HERO_ABS}\" alt=\"${TITLE}\" style=\"max-width:100%;height:auto;display:block;margin-bottom:16px;\">"
+          else
+            HERO_HTML=""
+          fi
 
           # Extract body (everything after the closing --- of frontmatter) and convert to HTML
           BODY=$(awk '/^---/{if(++c==2){found=1;next}} found{print}' "$POST_FILE")
           BODY_HTML=$(echo "$BODY" | pandoc -f markdown -t html \
             | sed 's|src="/|src="https://www.kingfisherofbaltiza.co.uk/|g')
-          CONTENT="<p><em>${DESC}</em></p>${BODY_HTML}<hr><p><a href=\"${URL}\">View on website →</a></p>"
+          CONTENT="${HERO_HTML}<p><em>${DESC}</em></p>${BODY_HTML}<hr><p><a href=\"${URL}\">View on website →</a></p>"
 
           echo "Key length: ${#KIT_API_KEY}"
           echo "Testing auth with /account endpoint..."

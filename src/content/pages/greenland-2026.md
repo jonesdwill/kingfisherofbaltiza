@@ -1,5 +1,5 @@
 ---
-title: Greenland 2026 - Sailing and Climbing on the East Coast of Greenland
+title: Greenland 2026 - Sailing and Climbing on the East Coast
 description: Plans and overview for our Greenland 2026 expedition
 ---
 In their book 'Sea, Ice and Rock', Robin Knox-Johnston and Chris Bonnington describe their 1990 trip from the UK to first-ascent The Cathedral in the Lemon mountains, on the east coast of Greenland. They sailed on RKJ's well-known 'Suhaili' crammed full of up to seven crew, skis, pulks, food, pitons and a lot of whisky. Along with reading by Tillman and conversation with Scottish Arctic Club, this book has captured our imaginations about our own adventure on Suhaili's sister boat Kingfisher, albeit with a little less alcohol. 

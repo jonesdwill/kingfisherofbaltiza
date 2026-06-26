@@ -91,14 +91,6 @@ jobs:
           } > /tmp/email_content.html
           CONTENT=$(cat /tmp/email_content.html)
 
-          echo "Key length: ${#KIT_API_KEY}"
-          echo "Testing auth with /account endpoint..."
-          AUTH_STATUS=$(curl -s -o /tmp/auth_test.json -w "%{http_code}" \
-            "https://api.kit.com/v4/account" \
-            -H "X-Kit-Api-Key: ${KIT_API_KEY}")
-          echo "Auth test status: $AUTH_STATUS"
-          cat /tmp/auth_test.json | jq . 2>/dev/null || cat /tmp/auth_test.json
-
           echo "Calling Kit API..."
           NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           HTTP_STATUS=$(curl -s -o /tmp/kit_response.json -w "%{http_code}" \

@@ -74,6 +74,18 @@ height: auto;
 border-radius: 0;
 }
 
+figure {
+  margin: 1.2em 0;
+}
+
+figcaption {
+  font-size: 0.8em;
+  color: var(--text-dim);
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.4em;
+}
+
 code {
 font-family: 'Courier New', Courier, monospace;
 background: #f0e8e4;

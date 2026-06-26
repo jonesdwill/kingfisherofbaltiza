@@ -16,7 +16,7 @@ A high-level overview of our trip is as follows:
 - Week 3: Collect sixth crew member, Gabby, in Reykjavik on July 22nd and sail to Tasiilak, ice and weather permitting. 
 - Week 4: Collect rifle in Tasiilaq and turn south to Graahs Fjord. Establish anchor in Graahs Havn and Scout climbing further up in the Fjord. 
 - Weeks 5-6. Climb in Graahs Fjord. Begin journey back to Tasiilaq. 
-- Week 7-8: Sail back to Iceland and Scotland. 
+- Week 7-8: Sail back to Iceland and Scotland.
 
 This is a rough outline but in total we expect roughly five weeks sailing, two weeks climbing and some time to be battling the weather - Iceland is notoriously difficult to get back from so we expect to leave some leeway when leaving the climbing behind. 
 

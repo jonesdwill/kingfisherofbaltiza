@@ -50,7 +50,10 @@ jobs:
           echo "URL:         $URL"
           echo "========================="
 
-          CONTENT="<p>${DESC}</p><p><a href=\"${URL}\">Read the full post →</a></p>"
+          # Extract body (everything after the closing --- of frontmatter) and convert to HTML
+          BODY=$(awk '/^---/{if(++c==2){found=1;next}} found{print}' "$POST_FILE")
+          BODY_HTML=$(echo "$BODY" | pandoc -f markdown -t html)
+          CONTENT="<p><em>${DESC}</em></p>${BODY_HTML}<hr><p><a href=\"${URL}\">View on website →</a></p>"
 
           echo "Key length: ${#KIT_API_KEY}"
           echo "Testing auth with /account endpoint..."

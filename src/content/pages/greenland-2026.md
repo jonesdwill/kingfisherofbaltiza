@@ -45,15 +45,17 @@ On a first look at the area, our interests were mainly around the Skjoldungen Fj
 
 In fact when we first started planning this expedition Graah's Fjiord had no reported visits by climbing teams, however a team from the swiss alpine club has since visited last summer, climbing a number of routes in the fijord. Fortunately their efforts were still largely focused south in the Skjoldungen Fjords and they do not appear to have climbed the summits we have been investigating.
 
-It is of course difficult to know what the climbing will be like but the few photos provided from this previous expedition looked promising and constant scouring of google earth has allowed for the location of potential lines. From looking at photos of the area we expect the climbing to be rock (no mixed) with glacier approaches so axes, boots n poons will be coming with us. You can have a look at our incredibly professional google earth pinning above - Hopefully its not all choss!
+It is of course difficult to know what the climbing will be like but the few photos provided from this previous expedition looked promising and constant scouring of google earth has allowed for the location of potential lines. From looking at photos of the area we expect the climbing to be rock (no mixed) but with glacier approaches (and maybe descents) so axes, boots n poons will be coming with us. You can have a look at our incredibly professional google earth pinning above - Hopefully its not all choss!
 
 Our plan is to climb in two pairs (Will & Charlie and Meg & Lara). We hope to climb independently of one another but stay close, either on the same route or climb in parallel, as to assist if needed. We will be bringing a shore barrel, equipped with a rifle, tents, food, flares etc. to keep us sustained in an emergency. Both parties will carry radios to communicate with each other, as well as an InReach each and handhold VHF in the shore barrel to communicate with Gabby and Bella on the boat. Each party will have, but not necessarily climb with a full double rack and double ropes as well as pitons, beaks and lightweight etriers to get us out of any sticky situations. We will also bring spare gear, ropes and a lot of abseil tat. This is all quite redundant but gives us maximum independence - benefit of not having any checked luggage! 
 
-## Charts
+## Charting
 
-There are some basic 
+We have some basic large scale paper charts available for the area, and generally the journey to Tasiilaq and to the entrance of Graahs Fjord is well charted and we can use software like navionics and our Garmin GPS device. Skjoldungen has been [mapped using bathymetry](https://essd.copernicus.org/articles/9/589/2017/) by a Danish team, but Graahs Fjord has no high resolution charting. 
 
+Instead we have turned to more cowboy methods involving the use of satellite imagery, GIS and tracing out any apparent sneaky underwater rocks. It would have been good to use LiDAR but it is not really available at a high enough resolution to be viable. 
 
+We have installed a new depth transducer and will bring a handheld depth sounder. If the weather is bad and we cannot climb we hope to make use of the time by gathering some more data on the possible anchorages in Graahs Fjord. 
 
 ## Ice
 
@@ -68,6 +70,8 @@ An initial look at the ice charts in the lead up to the trip are somewhat positi
 In their book, RKJ and CB get stuck in Iceland trying to return for quite sometime, with several attempts to leave and big depressions. This is a worry for us - the later we leave it in the season to get back the more chance of bad weather for the final straight. We will aim to leave Graah's Fjord as early as possible (second half of August) as to minimise this risk. 
 
 Perhaphs this doesn't need saying but the sea temperatures are pretty cold around Greenland - sitting at around 0C. This will make life on the Kingfisher quite uncomfortable when you add in wet everything. We have purchased huge sythetic ex-army sleeping bags for comfort on the boat, and hopefully wont have to use the deisel heater too much.  
+
+We are able to receive general weather updates via our garmin inReaches, as well as detailed grib files by e-mail request on the Sat phone - we have even mounted an external Iridium antenna on Kingfisher so we don't even have to leave the comfort of her cabin. 
 
 ## Space
 

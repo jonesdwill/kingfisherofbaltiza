@@ -12,6 +12,7 @@ nextPost?: { id: string; title: string } | null;
 };
 
 const { title, description, pubDate, updatedDate, heroImage, prevPost, nextPost } = Astro.props;
+const canonicalSlug = Astro.url.pathname;
 
 const allPosts = (await getCollection('blog')).sort(
 (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -20,7 +21,22 @@ const allPosts = (await getCollection('blog')).sort(
 
 <html lang="en">
 <head>
-<BaseHead title={title} description={description} />
+<BaseHead title={`${title} | Kingfisher of Baltiza`} description={description} image={heroImage} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": pubDate.toISOString(),
+  ...(updatedDate ? { "dateModified": updatedDate.toISOString() } : {}),
+  ...(heroImage ? { "image": `https://www.kingfisherofbaltiza.co.uk${heroImage}` } : {}),
+  "url": `https://www.kingfisherofbaltiza.co.uk${canonicalSlug}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kingfisher of Baltiza",
+    "url": "https://www.kingfisherofbaltiza.co.uk"
+  }
+})} />
 <style>
 .post-layout {
 display: grid;

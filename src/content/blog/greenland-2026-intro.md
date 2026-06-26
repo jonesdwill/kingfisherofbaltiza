@@ -1,8 +1,8 @@
 ---
 title: Introducing KF's Greenland 2026 Expedition
 description: We are three weeks from departure to Graah's Havn, East Greenland.
-pubDate: 2026-06-23
-heroImage: /gallery/CB_KF_Pics -39.jpg
+pubDate: 2026-00-23
+heroImage: /gallery/IMG_4006.jpg
 ---
 Three weeks to go! This trip has been a long time in the making, and we are full of nervous anticipation to be on the final stretch to departure. 
 

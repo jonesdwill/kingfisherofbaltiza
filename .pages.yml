@@ -7,7 +7,7 @@ content:
     label: Blog Posts
     type: collection
     path: src/content/blog
-    filename: '{fields.title|slug}'
+    filename: '{fields.title|slug}.md'
     fields:
       - name: title
         label: Title
@@ -20,7 +20,7 @@ content:
         label: Date
         type: date
         options:
-          format: 'yyyy-mm-dd'
+          format: 'yyyy-MM-dd'
       - name: heroImage
         label: Cover Photo
         type: image

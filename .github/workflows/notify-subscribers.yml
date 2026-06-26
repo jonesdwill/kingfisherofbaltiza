@@ -36,6 +36,7 @@ jobs:
           KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
           POST_FILE: ${{ steps.detect.outputs.file }}
         run: |
+          sudo apt-get install -y -q pandoc
           # Parse frontmatter
           TITLE=$(awk '/^---/{if(f)exit;f=1;next} f && /^title:/{print;exit}' "$POST_FILE" \
             | sed "s/^title: *//;s/^['\"]//;s/['\"]$//")

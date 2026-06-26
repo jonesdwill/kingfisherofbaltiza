@@ -21,7 +21,7 @@ const allPosts = (await getCollection('blog')).sort(
 
 <html lang="en">
 <head>
-<BaseHead title={`${title} | Kingfisher of Baltiza`} description={description} image={heroImage} />
+<BaseHead title={`${title} | Kingfisher of Baltiza`} description={description} image={heroImage} ogType="article" />
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BlogPosting",

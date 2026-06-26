@@ -20,7 +20,13 @@ function rehypeLazyImages() {
 
 export default defineConfig({
   site: 'https://www.kingfisherofbaltiza.co.uk',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({
+    filter: (page) => ![
+      '/subscribe-success/',
+      '/confirm-subscription/',
+      '/404/',
+    ].some(p => page.includes(p)),
+  })],
   markdown: {
     rehypePlugins: [rehypeLazyImages],
   },

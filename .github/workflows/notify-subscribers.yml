@@ -28,6 +28,7 @@ jobs:
           echo "file=$NEW" >> $GITHUB_OUTPUT
           [ -n "$NEW" ] && echo "found=true" >> $GITHUB_OUTPUT \
                         || echo "found=false" >> $GITHUB_OUTPUT
+          echo "Detected new file: '${NEW:-none}'"
 
       - name: Send Kit broadcast
         if: steps.detect.outputs.found == 'true'
@@ -43,13 +44,15 @@ jobs:
           SLUG=$(basename "$POST_FILE" .md)
           URL="https://www.kingfisherofbaltiza.co.uk/blog/${SLUG}/"
 
-          echo "New post detected: $TITLE"
-          echo "URL: $URL"
+          echo "=== New post detected ==="
+          echo "Title:       $TITLE"
+          echo "Description: $DESC"
+          echo "URL:         $URL"
+          echo "========================="
 
-          # Build email content
           CONTENT="<p>${DESC}</p><p><a href=\"${URL}\">Read the full post →</a></p>"
 
-          # Send via Kit API v4
+          echo "Calling Kit API..."
           HTTP_STATUS=$(curl -s -o /tmp/kit_response.json -w "%{http_code}" \
             -X POST "https://api.kit.com/v4/broadcasts" \
             -H "Authorization: Bearer ${KIT_API_KEY}" \
@@ -60,12 +63,13 @@ jobs:
               --arg published_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
               '{subject: $subject, content: $content, published_at: $published_at}')")
 
-          echo "Kit API response:"
-          cat /tmp/kit_response.json
+          echo "HTTP status: $HTTP_STATUS"
+          echo "Response body:"
+          cat /tmp/kit_response.json | jq . 2>/dev/null || cat /tmp/kit_response.json
 
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
-            echo "✓ Broadcast sent for: $TITLE"
+            echo "✓ Broadcast created/sent"
           else
-            echo "✗ Kit API returned HTTP $HTTP_STATUS"
+            echo "✗ Kit API failed with HTTP $HTTP_STATUS"
             exit 1
           fi

@@ -67,6 +67,9 @@ jobs:
           BODY_HTML=$(echo "$BODY" | pandoc -f markdown -t html \
             | sed 's|src="/|src="https://www.kingfisherofbaltiza.co.uk/|g')
           CONTENT="${HERO_HTML}<p><em>${DESC}</em></p>${BODY_HTML}<hr><p><a href=\"${URL}\">View on website →</a></p>"
+          echo "=== First 500 chars of email content ==="
+          echo "${CONTENT:0:500}"
+          echo "========================================"
 
           echo "Key length: ${#KIT_API_KEY}"
           echo "Testing auth with /account endpoint..."

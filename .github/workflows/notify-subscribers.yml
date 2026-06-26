@@ -1,0 +1,71 @@
+name: Notify subscribers of new blog post
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/blog/**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # need previous commit to detect additions vs edits
+
+      - name: Detect new blog post
+        id: detect
+        run: |
+          # Check if previous commit exists (handles edge case of first push)
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            NEW=$(git diff --name-status HEAD~1 HEAD -- src/content/blog/ \
+              | grep '^A' | awk '{print $2}' | head -1)
+          else
+            NEW=$(git show --name-status HEAD -- src/content/blog/ \
+              | grep '^A' | awk '{print $2}' | head -1)
+          fi
+          echo "file=$NEW" >> $GITHUB_OUTPUT
+          [ -n "$NEW" ] && echo "found=true" >> $GITHUB_OUTPUT \
+                        || echo "found=false" >> $GITHUB_OUTPUT
+
+      - name: Send Kit broadcast
+        if: steps.detect.outputs.found == 'true'
+        env:
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+          POST_FILE: ${{ steps.detect.outputs.file }}
+        run: |
+          # Parse frontmatter
+          TITLE=$(awk '/^---/{if(f)exit;f=1;next} f && /^title:/{print;exit}' "$POST_FILE" \
+            | sed "s/^title: *//;s/^['\"]//;s/['\"]$//")
+          DESC=$(awk '/^---/{if(f)exit;f=1;next} f && /^description:/{print;exit}' "$POST_FILE" \
+            | sed "s/^description: *//;s/^['\"]//;s/['\"]$//")
+          SLUG=$(basename "$POST_FILE" .md)
+          URL="https://www.kingfisherofbaltiza.co.uk/blog/${SLUG}/"
+
+          echo "New post detected: $TITLE"
+          echo "URL: $URL"
+
+          # Build email content
+          CONTENT="<p>${DESC}</p><p><a href=\"${URL}\">Read the full post →</a></p>"
+
+          # Send via Kit API v4
+          HTTP_STATUS=$(curl -s -o /tmp/kit_response.json -w "%{http_code}" \
+            -X POST "https://api.kit.com/v4/broadcasts" \
+            -H "Authorization: Bearer ${KIT_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "$(jq -n \
+              --arg subject "$TITLE" \
+              --arg content "$CONTENT" \
+              --arg published_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              '{subject: $subject, content: $content, published_at: $published_at}')")
+
+          echo "Kit API response:"
+          cat /tmp/kit_response.json
+
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "✓ Broadcast sent for: $TITLE"
+          else
+            echo "✗ Kit API returned HTTP $HTTP_STATUS"
+            exit 1
+          fi

@@ -37,9 +37,9 @@ Since Kingfisher has no autohelm this gives us plenty of crew to man watches wit
 
 ![Chart of Skjoldungen and Graahs Fjord](/gallery/IMG_4006-1.jpg)
 
-![](</gallery/graahs fjord + skjoldungen-1.PNG>)
+![Chart of Skjoldungen and Graahs Fjord](/gallery/graahs%20fjord%20+%20skjoldungen-1.jpg)
 
-![Overview of climbing in Graahs Fjord](/gallery/graahs.PNG)
+![Overview of climbing in Graahs Fjord](/gallery/graahs.jpg)
 
 On a first look at the area, our interests were mainly around the Skjoldungen Fjord to the south. This is better known, better charted, and has known climbing routes done there. However, while researching we read the excellent RCC pilot guide by Andrew Wilkes that describes the northerly Graah's Fjord as having "spectacular anchorage...with climbing potential" so obviously this was the place to visit. Featuring two significant peaks with no recorded ascents there is even a chance of new summits for the team.
 

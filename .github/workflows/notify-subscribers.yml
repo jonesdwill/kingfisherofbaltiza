@@ -66,10 +66,30 @@ jobs:
           BODY=$(awk '/^---/{if(++c==2){found=1;next}} found{print}' "$POST_FILE")
           BODY_HTML=$(echo "$BODY" | pandoc -f markdown -t html \
             | sed 's|src="/|src="https://www.kingfisherofbaltiza.co.uk/|g')
-          CONTENT="${HERO_HTML}<p><em>${DESC}</em></p>${BODY_HTML}<hr><p><a href=\"${URL}\">View on website →</a></p>"
-          echo "=== First 500 chars of email content ==="
-          echo "${CONTENT:0:500}"
-          echo "========================================"
+
+          # Wrap in site-styled email template
+          CONTENT=$(cat <<EMAILEOF
+<div style="background:#f8f4f2;padding:0;margin:0;font-family:Georgia,serif;">
+<div style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #c8b8b0;">
+  <div style="background:#a03010;padding:18px 28px;">
+    <a href="https://www.kingfisherofbaltiza.co.uk" style="color:#ffffff;text-decoration:none;font-size:1.2em;letter-spacing:0.04em;">KINGFISHER OF BALTIZA</a>
+  </div>
+  <div style="padding:28px 32px;color:#1a1a1a;font-size:15px;line-height:1.7;">
+    $([ -n "$HERO" ] && echo "<img src=\"${HERO_ABS}\" alt=\"${TITLE}\" style=\"max-width:100%;height:auto;display:block;margin-bottom:20px;\">")
+    <h1 style="font-family:Georgia,serif;color:#a03010;font-size:1.5em;margin:0 0 6px 0;">${TITLE}</h1>
+    <p style="color:#555555;font-size:0.88em;margin:0 0 16px 0;font-style:italic;">${DESC}</p>
+    <hr style="border:none;border-top:1px solid #c8b8b0;margin:0 0 20px 0;">
+    ${BODY_HTML}
+    <hr style="border:none;border-top:1px solid #c8b8b0;margin:24px 0 20px 0;">
+    <p style="margin:0;"><a href="${URL}" style="color:#a03010;font-weight:bold;">View on website &rarr;</a></p>
+  </div>
+  <div style="background:#f8f4f2;padding:14px 32px;border-top:1px solid #c8b8b0;font-size:0.78em;color:#555555;text-align:center;">
+    Kingfisher of Baltiza &mdash; <a href="https://www.kingfisherofbaltiza.co.uk" style="color:#a03010;">kingfisherofbaltiza.co.uk</a>
+  </div>
+</div>
+</div>
+EMAILEOF
+          )
 
           echo "Key length: ${#KIT_API_KEY}"
           echo "Testing auth with /account endpoint..."

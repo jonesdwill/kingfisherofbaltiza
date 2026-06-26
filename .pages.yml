@@ -7,7 +7,9 @@ content:
     label: Blog Posts
     type: collection
     path: src/content/blog
-    filename: '{fields.title|slug}.md'
+    filename: '{fields.title|slug}'
+    extension: md
+    format: yaml-frontmatter
     fields:
       - name: title
         label: Title

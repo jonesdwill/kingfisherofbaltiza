@@ -28,6 +28,7 @@ font-size: 13px;
 line-height: 1.6;
 word-wrap: break-word;
 overflow-wrap: break-word;
+  scrollbar-gutter: stable;
 }
 
 /* White content column centred on grey page */

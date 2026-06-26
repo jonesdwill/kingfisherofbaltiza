@@ -55,20 +55,19 @@ jobs:
           echo "Key length: ${#KIT_API_KEY}"
           echo "Testing auth with /account endpoint..."
           AUTH_STATUS=$(curl -s -o /tmp/auth_test.json -w "%{http_code}" \
-            "https://api.kit.com/v4/account" \
-            -H "Authorization: Bearer ${KIT_API_KEY}")
+            "https://api.convertkit.com/v3/account?api_secret=${KIT_API_KEY}")
           echo "Auth test status: $AUTH_STATUS"
           cat /tmp/auth_test.json | jq . 2>/dev/null || cat /tmp/auth_test.json
 
           echo "Calling Kit API..."
           HTTP_STATUS=$(curl -s -o /tmp/kit_response.json -w "%{http_code}" \
-            -X POST "https://api.kit.com/v4/broadcasts" \
-            -H "Authorization: Bearer ${KIT_API_KEY}" \
+            -X POST "https://api.convertkit.com/v3/broadcasts" \
             -H "Content-Type: application/json" \
             -d "$(jq -n \
+              --arg api_secret "$KIT_API_KEY" \
               --arg subject "$TITLE" \
               --arg content "$CONTENT" \
-              '{broadcast: {subject: $subject, content: $content}}')")
+              '{api_secret: $api_secret, subject: $subject, content: $content}')")
 
           echo "HTTP status: $HTTP_STATUS"
           echo "Response body:"

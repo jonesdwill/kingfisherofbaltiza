@@ -31,7 +31,7 @@ There will be six members onboard Kingfisher:
 - Bella Southall
 - Gabby Krawczyck
 
-Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabby can   
+Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabby can be closer by to look after Kingfisher if we go further afield for climbing.
 
 ## Climbing in Graahs Fjiord
 

@@ -61,7 +61,7 @@ We have installed a new depth transducer and will bring a handheld depth sounder
 
 The big obvious challenge to our trip is ice in the Denmark straight. Kingfisher is superbly seaworthy but even a not so big berg could cause some nasty damage. Some of our reasoning for going south of Tasiilaq is to not have to enter the arctic circle and navigate the more densely packed ice to the north. 
 
-![image.png](/gallery/image.png)
+![image.jpg](/gallery/image.jpg)
 
 An initial look at the ice charts in the lead up to the trip are somewhat positive (for our purpose at least), with open drift ice by Tasiilaq. The northerly ice will break up and drift south but by leaving later in the season we hope to minimise the high stress navigation. 
 

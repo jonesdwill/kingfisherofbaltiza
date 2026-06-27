@@ -13,7 +13,7 @@ If the following weeks go well we are on track for five (of six) crew to leave U
 A high-level overview of our trip is as follows:
 
 - Weeks 1-2: Sail from Ullapool to Reykjavik beginning July 10th. Make any final preparations here. 
-- Week 3: Collect sixth crew member, Gabby, in Reykjavik on July 22nd and sail to Tasiilaq, ice and weather permitting. 
+- Week 3: Collect sixth crew member, Gabi, in Reykjavik on July 22nd and sail to Tasiilaq, ice and weather permitting. 
 - Week 4: Collect rifle in Tasiilaq and turn south to Graahs Fjord. Establish anchor in Graahs Havn and scout climbing further up in the Fjord. 
 - Weeks 5-6. Climb in Graahs Fjord. Begin journey back to Tasiilaq. 
 - Week 7-8: Sail back to Iceland and Scotland.
@@ -29,9 +29,9 @@ There will be six members onboard Kingfisher:
 - Charlie Banford
 - Will Jones
 - Bella Southall
-- Gabby Krawczyck
+- Gabi Krawczyk
 
-Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabby can be closer by to look after Kingfisher if we go further afield for climbing.
+Since Kingfisher has no autohelm this gives us plenty of crew to man watches with two people on deck at all times. It also means Bella and Gabi can be closer by to look after Kingfisher if we go further afield for climbing.
 
 ## Climbing in Graahs Fjiord
 
@@ -47,7 +47,7 @@ In fact when we first started planning this expedition Graah's Fjiord had no rep
 
 It is of course difficult to know what the climbing will be like but the few photos provided from this previous expedition looked promising and constant scouring of google earth has allowed for the location of potential lines. From looking at photos of the area we expect the climbing to be rock (no mixed) but with glacier approaches (and maybe descents) so axes, boots n poons will be coming with us. You can have a look at our incredibly professional google earth pinning above - Hopefully its not all choss!
 
-Our plan is to climb in two pairs (Will & Charlie and Meg & Lara). We hope to climb independently of one another but stay close, either on the same route or climb in parallel, as to assist if needed. We will be bringing a shore barrel, equipped with a rifle, tents, food, flares etc. to keep us sustained in an emergency. Both parties will carry radios to communicate with each other, as well as an InReach each and handhold VHF in the shore barrel to communicate with Gabby and Bella on the boat. Each party will have, but not necessarily climb with a full double rack and double ropes as well as a mixture of pitons, lost arrows, knifeblades, beaks and lightweight etriers to get us out of any sticky situations. We will also bring spare gear, ropes and a lot of abseil tat. This is all quite redundant but gives us maximum independence - benefit of not having any checked luggage! 
+Our plan is to climb in two pairs (Will & Charlie and Meg & Lara). We hope to climb independently of one another but stay close, either on the same route or climb in parallel, as to assist if needed. We will be bringing a shore barrel, equipped with a rifle, tents, food, flares etc. to keep us sustained in an emergency. Both parties will carry radios to communicate with each other, as well as an InReach each and handhold VHF in the shore barrel to communicate with Gabi and Bella on the boat. Each party will have, but not necessarily climb with a full double rack and double ropes as well as a mixture of pitons, lost arrows, knifeblades, beaks and lightweight etriers to get us out of any sticky situations. We will also bring spare gear, ropes and a lot of abseil tat. This is all quite redundant but gives us maximum independence - benefit of not having any checked luggage! 
 
 ## Charting
 

@@ -137,7 +137,8 @@ import HeaderLink from './HeaderLink.astro';
 		z-index: 200;
 	}
 
-	.dropdown:hover .dropdown-menu {
+	.dropdown:hover .dropdown-menu,
+	.dropdown.is-open .dropdown-menu {
 		display: block;
 	}
 
@@ -158,4 +159,24 @@ import HeaderLink from './HeaderLink.astro';
 		background: rgba(0, 0, 0, 0.2);
 		color: #ffffff !important;
 	}
+
+	@media (max-width: 700px) {
+		.dropdown-label {
+			cursor: pointer;
+		}
+	}
 </style>
+
+<script>
+	const label = document.querySelector('.dropdown-label');
+	const dropdown = label?.closest('.dropdown');
+	if (label && dropdown) {
+		label.addEventListener('click', (e) => {
+			e.stopPropagation();
+			dropdown.classList.toggle('is-open');
+		});
+		document.addEventListener('click', () => {
+			dropdown.classList.remove('is-open');
+		});
+	}
+</script>

@@ -25,7 +25,7 @@ This is a rough outline but in total we expect roughly five weeks sailing, two w
 There will be six members onboard Kingfisher:
 
 - Meg Loftus (Skipper)
-- Lara Novak
+- Lara Novak (co-expedition leader)
 - Charlie Banford
 - Will Jones
 - Bella Southall

@@ -48,6 +48,24 @@ Her sister ship is the well-known Suhali, sailed by Sir Robin Knox-Johnston in t
 
 					<hr />
 
+					<div class="tracking-section">
+						<p class="section-head">Live Tracking</p>
+						<p>Follow the expedition in real time via the Garmin live map.</p>
+						<div class="mapshare-embed">
+							<iframe
+								src="https://live.garmin.com/session/1297b0e8-9904-8d69-aece-a11ee3cbc201/token/CCFFBA9CAC55A9C45C9021C4FEC47C29"
+								title="Garmin live tracking for the Greenland 2026 expedition"
+								width="100%"
+								height="420"
+								loading="lazy"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="mapshare-note">
+							<a href="https://live.garmin.com/session/1297b0e8-9904-8d69-aece-a11ee3cbc201/token/CCFFBA9CAC55A9C45C9021C4FEC47C29" target="_blank" rel="noopener noreferrer">Open the Garmin Live Map directly</a>
+						</p>
+					</div>
+
 					<div class="home-boxes">
 						<div class="content-box">
 							<h3>Greenland 2026</h3>
@@ -97,6 +115,33 @@ Her sister ship is the well-known Suhali, sailed by Sir Robin Knox-Johnston in t
 	}
 
 	.home-main { min-width: 0; }
+
+	.tracking-section {
+		margin: 1.25rem 0 1.5rem;
+		padding: 1rem;
+		border: 1px solid var(--border);
+		border-radius: 0.75rem;
+		background: var(--surface);
+	}
+
+	.mapshare-embed {
+		margin: 0.75rem 0 0.5rem;
+		border: 1px solid var(--border);
+		border-radius: 0.5rem;
+		overflow: hidden;
+	}
+
+	.mapshare-embed iframe {
+		display: block;
+		width: 100%;
+		border: 0;
+	}
+
+	.mapshare-note {
+		font-size: 0.9rem;
+		color: var(--text-dim);
+		margin: 0;
+	}
 
 	.home-boxes {
 		display: grid;

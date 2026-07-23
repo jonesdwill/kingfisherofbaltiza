@@ -97,6 +97,25 @@ As you can imagine, this trip is very expensive. As recent graduates we would no
 
 We have also kindly been given lots of shiny new gear by Mountain Equipment, to keep us nice and warm on the land. We are immensely grateful to all of these institutions who have been so generous and made this trip possible.
 
+## Live Tracking
+
+We will share our position live during the expedition via Garmin MapShare.
+
+<div class="mapshare-embed">
+  <iframe
+    src="https://live.garmin.com/session/1297b0e8-9904-8d69-aece-a11ee3cbc201/token/CCFFBA9CAC55A9C45C9021C4FEC47C29"
+    title="Garmin MapShare tracking for the Greenland 2026 expedition"
+    width="100%"
+    height="600"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<p class="mapshare-note">
+  If the map does not appear in the frame, <a href="https://live.garmin.com/session/1297b0e8-9904-8d69-aece-a11ee3cbc201/token/CCFFBA9CAC55A9C45C9021C4FEC47C29" target="_blank" rel="noopener noreferrer">open the Garmin Live Map directly</a>.
+</p>
+
 ## Updates
 
 For trip updates, please subscribe to the blog. We will be posting whenever within signal. 

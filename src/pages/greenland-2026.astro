@@ -48,4 +48,21 @@ const posts = (await getCollection('blog')).sort(
     font-size: 0.75em;
     color: var(--text-dim);
   }
+  .mapshare-embed {
+    margin: 1rem 0 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .mapshare-embed iframe {
+    display: block;
+    width: 100%;
+    min-height: 600px;
+    border: 0;
+  }
+  .mapshare-note {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
 </style>

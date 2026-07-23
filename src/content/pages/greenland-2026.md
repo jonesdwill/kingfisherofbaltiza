@@ -99,7 +99,7 @@ We have also kindly been given lots of shiny new gear by Mountain Equipment, to 
 
 ## Live Tracking
 
-We will share our position live during the expedition via Garmin MapShare.
+We will share our position live during the expedition via Garmin MapShare. Please do not panic if it does not update for a while - if it hasn't moved we most likely just haven't updated it.
 
 <div class="mapshare-embed">
   <iframe

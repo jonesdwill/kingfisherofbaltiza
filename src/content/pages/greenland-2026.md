@@ -103,7 +103,7 @@ We will share our position live during the expedition via Garmin MapShare. Pleas
 
 <div class="mapshare-embed">
   <iframe
-    src="https://live.garmin.com/session/1297b0e8-9904-8d69-aece-a11ee3cbc201/token/CCFFBA9CAC55A9C45C9021C4FEC47C29"
+    src="https://share.garmin.com/AV5ODFEWNG"
     title="Garmin MapShare tracking for the Greenland 2026 expedition"
     width="100%"
     height="600"

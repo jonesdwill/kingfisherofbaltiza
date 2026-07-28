@@ -113,7 +113,7 @@ We will share our position live during the expedition via Garmin MapShare. Pleas
 </div>
 
 <p class="mapshare-note">
-  If the map does not appear in the frame, <a href="https://live.garmin.com/session/1297b0e8-9904-8d69-aece-a11ee3cbc201/token/CCFFBA9CAC55A9C45C9021C4FEC47C29" target="_blank" rel="noopener noreferrer">open the Garmin Live Map directly</a>.
+  If the map does not appear in the frame, <a href="https://share.garmin.com/AV5ODFEWNG" target="_blank" rel="noopener noreferrer">open the Garmin Live Map directly</a>.
 </p>
 
 ## Updates

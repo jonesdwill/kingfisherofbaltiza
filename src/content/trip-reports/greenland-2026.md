@@ -44,7 +44,7 @@ The following report contains an account of our trip to climb in Graah Fjord, de
 
 ![](/trip-reports/greenland/media/meg.webp)
 
-**Meg Loftus** (21, Skipper) has been sailing Kingfisher on various adventures for the past 5 years. Growing up on the west coast of Scotland and with a wooden boatbuilder for a dad, the sea and sailing were a big part of her life. She started rock climbing 4 years ago and has loved it ever since. Getting to sail to Greenland on a traditional wooden boat and go climbing as well was an amazing culmination of her dreams!
+**Meg Loftus** (21, Expedition leader & Skipper) has been sailing Kingfisher on various adventures for the past 5 years. Growing up on the west coast of Scotland and with a wooden boatbuilder for a dad, the sea and sailing were a big part of her life. She started rock climbing 4 years ago and has loved it ever since. Getting to sail to Greenland on a traditional wooden boat and go climbing as well was an amazing culmination of her dreams!
 
 </div>
 
@@ -52,7 +52,7 @@ The following report contains an account of our trip to climb in Graah Fjord, de
 
 ![](/trip-reports/greenland/media/lara.webp)
 
-**Lara Novak** (24, First Mate) has been climbing for 6 years, mostly in the UK and the Italian Alps. She climbs up to E2 and enjoys long mountain routes. She grew up dinghy sailing and has done the RYA Dayskipper qualification, and has been on Kingfisher for the past three summers. She did the WMT Advanced Medicine course in 2026 and was in charge of first aid.
+**Lara Novak** (24, Expedition leader & First Mate) has been climbing for 6 years, mostly in the UK and the Italian Alps. She climbs up to E2 and enjoys long mountain routes. She grew up dinghy sailing and has done the RYA Dayskipper qualification, and has been on Kingfisher for the past three summers. She did the WMT Advanced Medicine course in 2026 and was in charge of first aid.
 
 </div>
 

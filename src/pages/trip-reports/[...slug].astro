@@ -23,6 +23,7 @@ const toc = headings.filter((h) => h.depth <= 3);
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" />
     <BaseHead title={`${report.data.title} | Kingfisher of Baltiza`} description={report.data.description} />
   </head>
   <body class="page-body">
@@ -95,8 +96,44 @@ const toc = headings.filter((h) => h.depth <= 3);
 
   .page-shell {
     width: min(1100px, calc(100% - 3rem));
+    max-width: none;
     margin: 0 auto;
     padding: 0.75rem 0 4rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-shell :global(h1),
+  .page-shell :global(h2),
+  .page-shell :global(h3),
+  .page-shell :global(h4) {
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+  }
+
+  .page-shell :global(h1) {
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+
+  .page-shell :global(p) {
+    margin: 1em 0;
+  }
+
+  .page-shell :global(a) {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  .page-shell :global(.toc li) {
+    margin: 0;
   }
 
   .story-panel {
@@ -200,3 +237,151 @@ const toc = headings.filter((h) => h.depth <= 3);
     margin-top: 0.6rem;
   }
 
+  .credits dd {
+    margin: 0;
+  }
+
+  .toc {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(23, 23, 23, 0.15);
+  }
+
+  .toc h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2 320px;
+    column-gap: 2rem;
+  }
+
+  .toc li {
+    break-inside: avoid;
+    text-transform: none;
+    letter-spacing: normal;
+    list-style: none;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .toc li.depth-2 {
+    margin-top: 0.5rem;
+    font-weight: 700;
+  }
+
+  .toc li.depth-3 {
+    padding-left: 1rem;
+  }
+
+  .toc a {
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .report-body :global(figure) {
+    margin: 1.75rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .report-body :global(img) {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+  }
+
+  /* Side-by-side images share a height: each column's width is proportional to its aspect ratio. */
+  .report-body :global(figure:has(.minipage)) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.75rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .report-body :global(.minipage) {
+    flex: var(--ar, 1) 1 0;
+    min-width: 0;
+    display: block;
+  }
+
+  .report-body :global(.minipage p) {
+    text-align: center;
+  }
+
+  .report-body :global(.minipage img) {
+    width: 100%;
+    max-height: none;
+  }
+
+  .report-body :global(figcaption),
+  .report-body :global(figure > p) {
+    margin: 0.4rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .report-body :global(.bio) {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    margin: 1.5rem 0;
+  }
+
+  .report-body :global(.bio figure) {
+    margin: 0;
+  }
+
+  .report-body :global(.bio p) {
+    margin: 0;
+  }
+
+  .report-body :global(table) {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 1.5rem 0;
+  }
+
+  .report-body :global(th),
+  .report-body :global(td) {
+    padding: 0.35rem 0.6rem;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.12);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .report-body :global(embed) {
+    width: 80%;
+    height: 600px;
+  }
+
+  @media (max-width: 760px) {
+    .page-shell {
+      width: min(100vw - 1.25rem, 100%);
+    }
+
+    .report-body :global(.bio) {
+      grid-template-columns: 1fr;
+    }
+
+  }
+</style>
